@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DOGMA AI — DSP Operating System</title>
+  <meta name="description" content="DOGMA AI — Data, Operations, Gestión, Motivación, Automatización. HQ digital para tu DSP." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Background effects -->
+  <canvas id="bg"></canvas>
+  <div class="vignette"></div>
+  <div class="scanlines"></div>
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="crest" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="brand-text">
+        <div class="brand-name">DOGMA<span class="accent">AI</span></div>
+        <div class="brand-sub" data-i18n="brand.sub">DSP Operating System</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="#modules" data-i18n="nav.services">Servicios</a>
+      <a href="#dogma" data-i18n="nav.dogma">DOGMA</a>
+      <a href="#roadmap" data-i18n="nav.roadmap">Roadmap</a>
+    </nav>
+
+    <div class="actions">
+      <div class="lang" aria-label="Language switch">
+        <button class="lang-btn" data-lang="es" aria-label="Español">ES</button>
+        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+      </div>
+
+      <button class="btn ghost" id="btnCopy" data-i18n="top.copyLinks">Copiar Links</button>
+      <a class="btn primary" href="#modules" data-i18n="top.access">Access Dashboard</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="kicker" data-i18n="hero.kicker">
+          <span class="dot"></span> Internal Build • A&A Xpress Edition
+        </div>
+
+        <h1 data-i18n="hero.title">
+          Control total de tu DSP, <span class="olive">sin caos</span>.
+        </h1>
+
+        <p class="lead" data-i18n="hero.lead">
+          DOGMA AI centraliza <b>datos</b>, <b>operaciones</b> y <b>automatización</b> en un solo HQ digital:
+          scorecards, dispatch, fleet, coaching y alertas inteligentes.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn primary" href="#modules" data-i18n="hero.ctaModules">Ver módulos</a>
+          <a class="btn ghost" href="#dogma" data-i18n="hero.ctaDogma">¿Qué es DOGMA?</a>
+        </div>
+
+        <div class="badges">
+          <span class="badge" data-i18n="hero.badge1">⚙️ Operaciones diarias</span>
+          <span class="badge" data-i18n="hero.badge2">📊 Scorecards & Analytics</span>
+          <span class="badge" data-i18n="hero.badge3">🚨 Alertas & Rescues</span>
+          <span class="badge" data-i18n="hero.badge4">🛡️ Safety Culture</span>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="panel">
+          <div class="panel-top">
+            <div class="lights">
+              <span class="l1"></span><span class="l2"></span><span class="l3"></span>
+            </div>
+            <div class="panel-title" data-i18n="panel.title">DOGMA HQ / STATUS</div>
+            <div class="chip">v0.1</div>
+          </div>
+
+          <div class="panel-body">
+            <div class="stat">
+              <div class="label" data-i18n="panel.systemLabel">Sistema</div>
+              <div class="value" data-i18n="panel.systemValue"><span class="pill ok"></span> ONLINE</div>
+            </div>
+            <div class="stat">
+              <div class="label" data-i18n="panel.modeLabel">Modo</div>
+              <div class="value" data-i18n="panel.modeValue">INTERNAL • DSP</div>
+            </div>
+            <div class="stat">
+              <div class="label" data-i18n="panel.focusLabel">Focus</div>
+              <div class="value" data-i18n="panel.focusValue">SPEED + QUALITY</div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="mini-grid">
+              <a class="mini-card" href="#modules" data-route="/scorecard">
+                <div class="mini-title" data-i18n="mini.scorecardTitle">Scorecard</div>
+                <div class="mini-sub" data-i18n="mini.scorecardSub">Drivers • Quality • Trends</div>
+              </a>
+              <a class="mini-card" href="#modules" data-route="/dispatch">
+                <div class="mini-title" data-i18n="mini.dispatchTitle">Dispatch</div>
+                <div class="mini-sub" data-i18n="mini.dispatchSub">Waves • Rescues • Risk</div>
+              </a>
+              <a class="mini-card" href="#modules" data-route="/fleet">
+                <div class="mini-title" data-i18n="mini.fleetTitle">Fleet</div>
+                <div class="mini-sub" data-i18n="mini.fleetSub">DVIC • Maint • Tools</div>
+              </a>
+              <a class="mini-card" href="#modules" data-route="/assistant">
+                <div class="mini-title" data-i18n="mini.assistantTitle">AI Assistant</div>
+                <div class="mini-sub" data-i18n="mini.assistantSub">SOP • Decisions • Summaries</div>
+              </a>
+            </div>
+
+            <div class="terminal" aria-label="terminal">
+              <div class="term-line" data-i18n="term.l1"><span class="term-dim">dogma@hq</span>:<span class="term-olive">~</span>$ boot --mode=dsp</div>
+              <div class="term-line" data-i18n="term.l2"><span class="term-dim">[OK]</span> modules loaded: scorecard, dispatch, fleet, drivers</div>
+              <div class="term-line" data-i18n="term.l3"><span class="term-dim">[OK]</span> alerts engine armed</div>
+              <div class="term-line" data-i18n="term.l4"><span class="term-dim">[READY]</span> awaiting input…<span class="cursor">█</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sig">
+          <div class="sig-line"></div>
+          <div class="sig-text" data-i18n="sig.text">MIL-SPEC UI • OLIVE/BLACK • ELITE OPS</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULES -->
+    <section id="modules" class="section">
+      <div class="section-head">
+        <h2 data-i18n="modules.title">Servicios / WebApps</h2>
+        <p data-i18n="modules.desc">Estas tarjetas son puertas a cada módulo. Por ahora, los links pueden apuntar a tus rutas internas.</p>
+      </div>
+
+      <div class="grid" id="moduleGrid">
+        <article class="card" data-href="/scorecard">
+          <div class="card-top">
+            <div class="icon">📊</div>
+            <div class="tag" data-i18n="tag.data">DATA</div>
+          </div>
+          <h3 data-i18n="cards.scorecard.title">Scorecard Intelligence</h3>
+          <p data-i18n="cards.scorecard.desc">Scorecards dinámicos, tendencias, impacto de penalizaciones, top performers y focus areas.</p>
+          <div class="meta">
+            <span class="meta-pill" data-i18n="pill.quality">Quality</span>
+            <span class="meta-pill" data-i18n="pill.safety">Safety</span>
+            <span class="meta-pill" data-i18n="pill.performance">Performance</span>
+          </div>
+          <div class="go" data-i18n="cards.open">Abrir →</div>
+        </article>
+
+        <article class="card" data-href="/dispatch">
+          <div class="card-top">
+            <div class="icon">🚛</div>
+            <div class="tag" data-i18n="tag.ops">OPS</div>
+          </div>
+          <h3 data-i18n="cards.dispatch.title">Dispatch & Route Control</h3>
+          <p data-i18n="cards.dispatch.desc">Waves, standbys, rescues, risk flags y control operativo en tiempo real.</p>
+          <div class="meta">
+            <span class="meta-pill" data-i18n="pill.waves">Waves</span>
+            <span class="meta-pill" data-i18n="pill.rescues">Rescues</span>
+            <span class="meta-pill" data-i18n="pill.live">Live</span>
+          </div>
+          <div class="go" data-i18n="cards.open">Abrir →</div>
+        </article>
+
+        <article class="card" data-href="/fleet">
+          <div class="card-top">
+            <div class="icon">🔧</div>
+            <div class="tag" data-i18n="tag.management">GESTIÓN</div>
+          </div>
+          <h3 data-i18n="cards.fleet.title">Fleet Management</h3>
+          <p data-i18n="cards.fleet.desc">DVIC, mantenimiento, breakdowns, historial por van y control de herramientas.</p>
+          <div class="meta">
+            <span class="meta-pill" data-i18n="pill.dvic">DVIC</span>
+            <span class="meta-pill" data-i18n="pill.maint">Maint</span>
+            <span class="meta-pill" data-i18n="pill.breakdowns">Breakdowns</span>
+          </div>
+          <div class="go" data-i18n="cards.open">Abrir →</div>
+        </article>
+
+        <article class="card" data-href="/drivers">
+          <div class="card-top">
+            <div class="icon">👥</div>
+            <div class="tag" data-i18n="tag.culture">CULTURA</div>
+          </div>
+          <h3 data-i18n="cards.drivers.title">Driver Intelligence</h3>
+          <p data-i18n="cards.drivers.desc">Tiers, coaching log, write-ups, reconocimiento semanal y performance notes.</p>
+          <div class="meta">
+            <span class="meta-pill" data-i18n="pill.coaching">Coaching</span>
+            <span class="meta-pill" data-i18n="pill.tiers">Tiers</span>
+            <span class="meta-pill" data-i18n="pill.rewards">Rewards</span>
+          </div>
+          <div class="go" data-i18n="cards.open">Abrir →</div>
+        </article>
+
+        <article class="card" data-href="/cortex">
+          <div class="card-top">
+            <div class="icon">📈</div>
+            <div class="tag" data-i18n="tag.risk">RISK</div>
+          </div>
+          <h3 data-i18n="cards.cortex.title">Cortex Analyzer</h3>
+          <p data-i18n="cards.cortex.desc">Red flags, simulación de impacto, alertas de calidad y riesgo operativo.</p>
+          <div class="meta">
+            <span class="meta-pill" data-i18n="pill.alerts">Alerts</span>
+            <span class="meta-pill" data-i18n="pill.predict">Predict</span>
+            <span class="meta-pill" data-i18n="pill.trends">Trends</span>
+          </div>
+          <div class="go" data-i18n="cards.open">Abrir →</div>
+        </article>
+
+        <article class="card" data-href="/assistant">
+          <div class="card-top">
+            <div class="icon">🤖</div>
+            <div class="tag" data-i18n="tag.ai">AI</div>
+          </div>
+          <h3 data-i18n="cards.assistant.title">AI Assistant (Internal GPT)</h3>
+          <p data-i18n="cards.assistant.desc">SOP Q&A, resúmenes, soporte a decisiones, incident analysis y mensajes.</p>
+          <div class="meta">
+            <span class="meta-pill" data-i18n="pill.sop">SOP</span>
+            <span class="meta-pill" data-i18n="pill.summaries">Summaries</span>
+            <span class="meta-pill" data-i18n="pill.decisions">Decisions</span>
+          </div>
+          <div class="go" data-i18n="cards.open">Abrir →</div>
+        </article>
+
+        <article class="card" data-href="/finance">
+          <div class="card-top">
+            <div class="icon">💰</div>
+            <div class="tag" data-i18n="tag.money">MONEY</div>
+          </div>
+          <h3 data-i18n="cards.finance.title">Bonus & Cost Projection</h3>
+          <p data-i18n="cards.finance.desc">Fantastic+ tracking, costos, proyecciones y simuladores (salario vs hourly).</p>
+          <div class="meta">
+            <span class="meta-pill" data-i18n="pill.bonuses">Bonuses</span>
+            <span class="meta-pill" data-i18n="pill.cost">Cost</span>
+            <span class="meta-pill" data-i18n="pill.forecast">Forecast</span>
+          </div>
+          <div class="go" data-i18n="cards.open">Abrir →</div>
+        </article>
+
+        <article class="card" data-href="/reports">
+          <div class="card-top">
+            <div class="icon">🧾</div>
+            <div class="tag" data-i18n="tag.auto">AUTO</div>
+          </div>
+          <h3 data-i18n="cards.reports.title">Reports & Comms Automation</h3>
+          <p data-i18n="cards.reports.desc">Opening notes, PDFs automáticos, correos a management y resúmenes diarios.</p>
+          <div class="meta">
+            <span class="meta-pill" data-i18n="pill.pdf">PDF</span>
+            <span class="meta-pill" data-i18n="pill.email">Email</span>
+            <span class="meta-pill" data-i18n="pill.daily">Daily</span>
+          </div>
+          <div class="go" data-i18n="cards.open">Abrir →</div>
+        </article>
+      </div>
+
+      <div class="callout">
+        <div class="callout-left">
+          <div class="callout-title" data-i18n="callout.title">Modo interno hoy. SaaS mañana.</div>
+          <div class="callout-text" data-i18n="callout.text">
+            Estructura lista para crecer: cada módulo puede ser una sub-app independiente dentro del mismo dominio.
+          </div>
+        </div>
+        <div class="callout-right">
+          <code class="code">dogma-ai.com/scorecard</code>
+          <code class="code">dogma-ai.com/dispatch</code>
+          <code class="code">dogma-ai.com/fleet</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOGMA -->
+    <section id="dogma" class="section">
+      <div class="section-head">
+        <h2 data-i18n="dogma.title">¿Qué significa DOGMA?</h2>
+        <p data-i18n="dogma.desc">Tu fórmula del “piloto automático DSP”.</p>
+      </div>
+
+      <div class="dogma">
+        <div class="dogma-card">
+          <div class="letter">D</div>
+          <div class="dogma-body">
+            <div class="dogma-title" data-i18n="dogma.d.title">Datos</div>
+            <div class="dogma-text" data-i18n="dogma.d.text">Scorecards, métricas, asistencia, rescates, calidad.</div>
+          </div>
+        </div>
+        <div class="dogma-card">
+          <div class="letter">O</div>
+          <div class="dogma-body">
+            <div class="dogma-title" data-i18n="dogma.o.title">Operaciones</div>
+            <div class="dogma-text" data-i18n="dogma.o.text">Rosters, apertura, waves, dispatch, control diario.</div>
+          </div>
+        </div>
+        <div class="dogma-card">
+          <div class="letter">G</div>
+          <div class="dogma-body">
+            <div class="dogma-title" data-i18n="dogma.g.title">Gestión</div>
+            <div class="dogma-text" data-i18n="dogma.g.text">Drivers, vans, licencias, mantenimiento, reportes.</div>
+          </div>
+        </div>
+        <div class="dogma-card">
+          <div class="letter">M</div>
+          <div class="dogma-body">
+            <div class="dogma-title" data-i18n="dogma.m.title">Motivación</div>
+            <div class="dogma-text" data-i18n="dogma.m.text">Reconocimientos, coaching, cultura, comunicación.</div>
+          </div>
+        </div>
+        <div class="dogma-card">
+          <div class="letter">A</div>
+          <div class="dogma-body">
+            <div class="dogma-title" data-i18n="dogma.a.title">Automatización</div>
+            <div class="dogma-text" data-i18n="dogma.a.text">IA + Workspace + alertas + reportes automáticos.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap" class="section">
+      <div class="section-head">
+        <h2 data-i18n="roadmap.title">Roadmap (Internal)</h2>
+        <p data-i18n="roadmap.desc">Una ruta simple: primero estabilidad, luego escalado.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-body">
+            <div class="t-title" data-i18n="roadmap.p1.title">Fase 1 — Centralización</div>
+            <div class="t-text" data-i18n="roadmap.p1.text">Landing + links + autenticación básica + módulos en rutas.</div>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-body">
+            <div class="t-title" data-i18n="roadmap.p2.title">Fase 2 — Automatización</div>
+            <div class="t-text" data-i18n="roadmap.p2.text">Alertas, PDFs, reporting, y motor de rescues.</div>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-body">
+            <div class="t-title" data-i18n="roadmap.p3.title">Fase 3 — Producto MVP</div>
+            <div class="t-text" data-i18n="roadmap.p3.text">Multi-DSP, permisos por roles, onboarding y pricing.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div data-i18n="footer.left">© <span id="year"></span> DOGMA AI • Internal Build • Jacksonville, FL</div>
+      <div class="footer-right">
+        <span class="mono" data-i18n="footer.r1">MIL-TECH UI</span>
+        <span class="sep">•</span>
+        <span class="mono" data-i18n="footer.r2">OLIVE/BLACK</span>
+        <span class="sep">•</span>
+        <span class="mono">v0.1</span>
+      </div>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
